@@ -1,4 +1,4 @@
-import 'package:countries_api_demo/country_model.dart';
+import 'package:countries_api_demo/models/country_model.dart';
 import 'package:flutter/material.dart';
 
 class FlagPage extends StatelessWidget {
