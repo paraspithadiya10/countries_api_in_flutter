@@ -2,36 +2,9 @@ import 'dart:convert';
 
 import 'package:countries_api_demo/country_model.dart';
 import 'package:countries_api_demo/db_helper.dart';
+import 'package:countries_api_demo/model/country_state_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
-
-class CountryState {
-  final List<CountryModel> allCountries;
-  final List<CountryModel> displayedCountries;
-  final String searchQuery;
-  final bool isAscending;
-
-  CountryState({
-    this.allCountries = const [],
-    this.displayedCountries = const [],
-    this.searchQuery = '',
-    this.isAscending = true,
-  });
-
-  CountryState copyWith({
-    List<CountryModel>? allCountries,
-    List<CountryModel>? displayedCountries,
-    String? searchQuery,
-    bool? isAscending,
-  }) {
-    return CountryState(
-      allCountries: allCountries ?? this.allCountries,
-      displayedCountries: displayedCountries ?? this.displayedCountries,
-      searchQuery: searchQuery ?? this.searchQuery,
-      isAscending: isAscending ?? this.isAscending,
-    );
-  }
-}
 
 class CountryNotifier extends StateNotifier<CountryState> {
   final DBHelper? dbRef;
