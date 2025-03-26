@@ -19,7 +19,7 @@ class CountryPage extends ConsumerWidget {
                 onPressed: () {
                   ref.read(countryProvider.notifier).toggleSort();
                 },
-                icon: Icon(Icons.sort))
+                icon: Icon(Icons.sort_by_alpha_sharp))
           ],
         ),
         body: Column(
