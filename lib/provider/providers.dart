@@ -104,10 +104,8 @@ class CountryNotifier extends StateNotifier<CountryState> {
   }
 }
 
-final dbProvider = Provider((ref) => DBHelper.getInstance);
-
 final countryProvider =
     StateNotifierProvider<CountryNotifier, CountryState>((ref) {
-  final dbRef = ref.watch(dbProvider);
+  final dbRef = DBHelper.getInstance;
   return CountryNotifier(dbRef);
 });
