@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:countries_api_demo/flag_page.dart';
+import 'package:countries_api_demo/screens/flag_page.dart';
 import 'package:countries_api_demo/provider/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

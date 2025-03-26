@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:countries_api_demo/models/country_model.dart';
-import 'package:countries_api_demo/db_helper.dart';
+import 'package:countries_api_demo/database/db_helper.dart';
 import 'package:countries_api_demo/models/country_state_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;

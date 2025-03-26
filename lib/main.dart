@@ -1,4 +1,4 @@
-import 'package:countries_api_demo/country_page.dart';
+import 'package:countries_api_demo/screens/country_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
