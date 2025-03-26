@@ -72,6 +72,7 @@ class CountryNotifier extends StateNotifier<CountryState> {
     }
 
     state = state.copyWith(allCountries: displayAllCountries, isLoading: false);
+    applyFilter();
   }
 
   void applyFilter() {
