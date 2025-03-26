@@ -10,14 +10,12 @@ class CountryState {
   final List<CountryModel> displayedCountries;
   final String searchQuery;
   final bool isAscending;
-  final bool isLoading;
 
   CountryState({
     this.allCountries = const [],
     this.displayedCountries = const [],
     this.searchQuery = '',
     this.isAscending = true,
-    this.isLoading = false,
   });
 
   CountryState copyWith({
@@ -25,14 +23,12 @@ class CountryState {
     List<CountryModel>? displayedCountries,
     String? searchQuery,
     bool? isAscending,
-    bool? isLoading,
   }) {
     return CountryState(
       allCountries: allCountries ?? this.allCountries,
       displayedCountries: displayedCountries ?? this.displayedCountries,
       searchQuery: searchQuery ?? this.searchQuery,
       isAscending: isAscending ?? this.isAscending,
-      isLoading: isLoading ?? this.isLoading,
     );
   }
 }
@@ -71,7 +67,7 @@ class CountryNotifier extends StateNotifier<CountryState> {
       await dbRef!.insertCountries(dbMaps);
     }
 
-    state = state.copyWith(allCountries: displayAllCountries, isLoading: false);
+    state = state.copyWith(allCountries: displayAllCountries);
     applyFilter();
   }
 

@@ -37,56 +37,51 @@ class CountryPage extends ConsumerWidget {
                         borderRadius: BorderRadius.circular(30))),
               ),
             ),
-            if (countryState.isLoading == true)
-              Center(
-                child: CircularProgressIndicator(),
-              )
-            else
-              Expanded(
-                child: ListView.builder(
-                    itemCount: countryState.displayedCountries.length,
-                    itemBuilder: (context, index) {
-                      var country = countryState.displayedCountries[index];
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Card(
-                          child: ListTile(
-                            leading: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            FlagPage(country: country)));
-                              },
-                              child: Hero(
-                                tag: country.cca2!,
-                                child: SizedBox(
-                                  height: 40,
-                                  width: 50,
-                                  child: CachedNetworkImage(
-                                    imageUrl: '${country.flags!.png}',
-                                    placeholder: (context, url) =>
-                                        CircularProgressIndicator(),
-                                    errorWidget: (context, url, error) =>
-                                        Icon(Icons.error),
-                                  ),
+            Expanded(
+              child: ListView.builder(
+                  itemCount: countryState.displayedCountries.length,
+                  itemBuilder: (context, index) {
+                    var country = countryState.displayedCountries[index];
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Card(
+                        child: ListTile(
+                          leading: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          FlagPage(country: country)));
+                            },
+                            child: Hero(
+                              tag: country.cca2!,
+                              child: SizedBox(
+                                height: 40,
+                                width: 50,
+                                child: CachedNetworkImage(
+                                  imageUrl: '${country.flags!.png}',
+                                  placeholder: (context, url) =>
+                                      CircularProgressIndicator(),
+                                  errorWidget: (context, url, error) =>
+                                      Icon(Icons.error),
                                 ),
                               ),
                             ),
-                            title: Text('${country.name!.common}'),
-                            subtitle: Text(
-                                'code: ${country.cca2}  currency: ${country.currencies!.values.first.symbol}'),
-                            onLongPress: () {
-                              ref
-                                  .read(countryProvider.notifier)
-                                  .deleteCountry(country);
-                            },
                           ),
+                          title: Text('${country.name!.common}'),
+                          subtitle: Text(
+                              'code: ${country.cca2}  currency: ${country.currencies!.values.first.symbol}'),
+                          onLongPress: () {
+                            ref
+                                .read(countryProvider.notifier)
+                                .deleteCountry(country);
+                          },
                         ),
-                      );
-                    }),
-              ),
+                      ),
+                    );
+                  }),
+            ),
           ],
         ));
   }
